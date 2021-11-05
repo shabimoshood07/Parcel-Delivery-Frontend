@@ -101,7 +101,7 @@ const loadParcel = async ()=>{
             openBtn.style.display = "none"
             closeBtn.style.display = "block"
             const det = e.currentTarget.parentElement.parentElement.nextElementSibling
-            det.style.height = "120px"
+            det.style.height = "150px"
           })
         })
 
