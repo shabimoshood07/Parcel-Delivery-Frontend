@@ -11,6 +11,12 @@ const logoutBtn = document.querySelector('.logout')
 const token = localStorage.getItem('token')
 const details =JSON.parse(localStorage.getItem('details'))
 
+if(token === null){
+  window.location ='login.html'
+}
+if(details.role === "admin"){
+  window.location ='admin.html'
+}
 
 window.addEventListener('load', async()=>{
       userDetails.innerHTML =  `<h3>Welcome ${details.name} </h3>`
@@ -101,7 +107,7 @@ const loadParcel = async ()=>{
             openBtn.style.display = "none"
             closeBtn.style.display = "block"
             const det = e.currentTarget.parentElement.parentElement.nextElementSibling
-            det.style.height = "120px"
+            det.style.height = "fit-content"
           })
         })
 

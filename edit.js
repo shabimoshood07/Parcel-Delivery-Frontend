@@ -9,7 +9,12 @@ const updateForm = document.querySelector('.update')
 // TOKEN
 const token = localStorage.getItem('token')
 const details =JSON.parse(localStorage.getItem('details'))
-
+if(token === null){
+  window.location ='login.html'
+}
+if(details.role === "admin"){
+  window.location ='admin.html'
+}
 editLabel.textContent = `Parcel id: ${id}`
 
 updateForm.addEventListener('submit', async(e)=>{

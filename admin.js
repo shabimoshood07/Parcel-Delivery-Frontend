@@ -5,6 +5,14 @@ const userDetails = document.querySelector('.user-detail')
 // TOKEN
 const token = localStorage.getItem('token')
 const details =JSON.parse(localStorage.getItem('details'))
+if(token === null){
+  window.location ='login.html'
+}
+if(details.role === "user"){
+  window.location ='login.html'
+  localStorage.clear('token')
+  localStorage.clear('details')
+}
 // LOGOUT
 logoutBtn.addEventListener('click', function(){
   localStorage.clear('token')
@@ -69,6 +77,7 @@ const loadParcel = async ()=>{
           itemcontainer.innerHTML = parcel
 
         }
+        
           const editBtn = document.querySelector('.edit-btn')
         const checkBtn = document.querySelector('.check-btn')
         const stats = document.querySelectorAll('.stat')
@@ -96,7 +105,7 @@ const loadParcel = async ()=>{
             openBtn.style.display = "none"
             closeBtn.style.display = "block"
             const det = e.currentTarget.parentElement.parentElement.nextElementSibling
-            det.style.height = "160px"
+            det.style.height = "fit-content"
           })
         })
 

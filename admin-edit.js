@@ -10,12 +10,23 @@ const errorMsg = document.querySelector('#error')
 const updateBtn = document.querySelector('.update-btn')
 const backBtn = document.querySelector('.back-btn')
 
-editLabel.textContent = `Parcel id: ${id}`
 
 
 // TOKEN
 const token = localStorage.getItem('token')
 const details =JSON.parse(localStorage.getItem('details'))
+
+if(token === null){
+  window.location ='login.html'
+}
+if(details.role === "user"){
+  window.location ='login.html'
+  localStorage.clear('token')
+  localStorage.clear('details')
+}
+
+editLabel.textContent = `Parcel id: ${id}`
+
 // LOGOUT
 logoutBtn.addEventListener('click', function(){
   localStorage.clear('token')

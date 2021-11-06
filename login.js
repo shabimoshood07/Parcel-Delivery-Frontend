@@ -28,7 +28,7 @@ loginForm.addEventListener('submit', async(e)=>{
         emailInput.value =''
         passwordInput.value =''
         localStorage.setItem("token", user.data.token)
-        localStorage.setItem("details", JSON.stringify({email:user.data.user.email, name:user.data.user.name }))
+        localStorage.setItem("details", JSON.stringify({email:user.data.user.email, name:user.data.user.name, role:user.data.user.role }))
 
         if(user.data.user.role === "user"){
             location.href = 'user.html'
